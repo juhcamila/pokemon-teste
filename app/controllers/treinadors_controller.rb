@@ -1,6 +1,7 @@
 class TreinadorsController < ApplicationController
   before_action :set_treinador, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:create]
+  before_action :authenticate_user!, except: [:index]
 
   # GET /treinadors
   # GET /treinadors.json
@@ -59,7 +60,6 @@ class TreinadorsController < ApplicationController
   def destroy
     @treinador.destroy
     sign_out
-    binding.pry
     @treinador.user.destroy
     respond_to do |format|
       format.html { redirect_to treinadors_url, notice: 'Treinador was successfully destroyed.' }

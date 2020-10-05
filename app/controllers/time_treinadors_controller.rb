@@ -1,6 +1,7 @@
 class TimeTreinadorsController < ApplicationController
   before_action :set_time_treinador, only: [:show, :edit, :update, :destroy]
   before_action :set_treinador, only: [:index, :create]
+  before_action :authenticate_user!
 
   # GET /time_treinadors
   # GET /time_treinadors.json

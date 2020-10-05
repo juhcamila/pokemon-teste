@@ -1,6 +1,7 @@
 class PokemonsController < ApplicationController
   before_action :set_pokemon, only: [:destroy]
   before_action :set_time, only: [:buscar, :adicionar, :destroy]
+  before_action :authenticate_user!
 
   def buscar
     @pokemon = nil
