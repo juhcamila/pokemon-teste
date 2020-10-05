@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Voltar', time_treinadors_path, class: "float-right btn btn-success", style: "margin: 10px" %>
+<%= link_to 'Editar', edit_time_treinador_path(@time_treinador), class: "float-right btn btn-primary", style: "margin: 10px" %>
+
+<h2>Time: <%= @time_treinador.nome %></h2>
+<br/>
+<div class="float-center">
+  <% if @pokemons.count < 6 %>
+    <%= link_to 'Adicionar Pokemon', time_treinador_pokemons_buscar_path(@time_treinador), class: "btn btn-primary", style: "margin: 10px" %>
+  <% end %>
+  <br/>
+</div>
+<br/>
+<div class="row">
+  <% if @pokemons.count > 0 %>
+    <% @pokemons.each do |pokemon| %>
+      <div class="card col-sm-4" style="width: 18rem; margin: 5px;">
+        <img class="card-img-top" src="<%= pokemon.sprite %>" alt="Imagem de capa do card">
+        <div class="card-body">
+          <h5 class="card-title"><%= pokemon.nome %>></h5>
+          <p class="card-text"><%= pokemon.tipo %></p>
+        </div>
+        <div class="card-body">
+          <%= link_to 'Excluir', time_treinador_pokemon_path(@time_treinador), method: :delete, data: { confirm: 'Deseja Continuar?' } %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h3 class="text-center">Esse time não tem pokemons, adicione!</h3>
+  <%end %>
+</div>

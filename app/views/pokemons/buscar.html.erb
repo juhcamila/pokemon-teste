@@ -1,0 +1,31 @@
+<%= form_tag time_treinador_pokemons_buscar_path(@time_treinador), :action => 'busca', :method => 'get' do %>
+  <div class="form-inputs row">
+    <div class="col-9">
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Digite o nome do pokemon" %>
+    </div>
+    <div class="col-3">
+      <%= submit_tag "Search", :name => nil, class: 'btn btn-success' %>
+    </div>
+  </div>
+<% end %>
+
+</br>
+<div class="row">
+  <% unless @pokemon.nil? || @pokemon.nome.nil? %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="<%= @pokemon.sprite_frontal %>" alt="Imagem de capa do card">
+      <div class="card-body">
+        <h5 class="card-title"><%= @pokemon.nome %></h5>
+        <p class="card-text"><%= @pokemon.tipo %></p>
+      </div>
+      <div class="card-body">
+        <%= link_to 'Adicionar', time_treinador_pokemons_adicionar_path(@time_treinador, nome: @pokemon.nome) %>
+      </div>
+    </div>
+
+  <% else %>
+    <h4 class="text-center">Não foi encontrado nenhum pokemon com esse nome</h4>
+  <% end %>
+</div>
+
+

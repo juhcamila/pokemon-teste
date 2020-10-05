@@ -1,0 +1,39 @@
+<%= form_with(model: treinador, local: true) do |f| %>
+  <% if treinador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(treinador.errors.count, "error") %> Ocorreu alguns Erros:</h2>
+
+      <ul>
+        <% treinador.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="form-inputs">
+   <div class="form-group has-error">
+     <%= f.label :nome %>
+     <%= f.text_field :nome, class: 'form-control', maxlength: "100", required: true  %>
+   </div>
+
+   <div class="form-group has-error">
+     <%= f.label :idade %>
+     <%= f.number_field :idade, class: 'form-control', min: "1", max: "120", required: true  %>
+   </div>
+
+   <div class="form-group has-error">
+     <%= f.label :sexo %>
+     <%= f.select :sexo, [["Masculino", 0], ["feminino", 1]], class: 'form-control', required: true  %>
+   </div>
+
+   <div class="form-group has-error">
+     <%= f.label 'Foto de Perfil' %>
+     <%= f.file_field :foto, class: 'form-control', accept: "image/*" %>
+   </div>
+ </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Editar Perfil', class: "btn btn-primary btn-lg btn-block" %>
+  </div>
+<% end %>

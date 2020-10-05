@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Times</h1>
+<%= link_to 'Adicionar Time', new_time_treinador_path, class: "float-right btn btn-success", style: "margin: 10px" %>
+<br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col" colspan="3">Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @time_treinadors.each do |time_treinador| %>
+      <tr>
+        <td><%= time_treinador.nome %></td>
+        <td><%= link_to 'Visualizar', time_treinador %></td>
+        <td><%= link_to 'Editar', edit_time_treinador_path(time_treinador) %></td>
+        <td><%= link_to 'Excluir', time_treinador, method: :delete, data: { confirm: 'Deseja Continuar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

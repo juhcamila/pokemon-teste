@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  tipo: MyString
+  sprint: MyString
+  time_treinador: one
+
+two:
+  nome: MyString
+  tipo: MyString
+  sprint: MyString
+  time_treinador: two

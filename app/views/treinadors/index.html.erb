@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center">Treinadores</h1>
+
+<div class="row">
+  <% @treinadors.each do |treinador| %>
+    <div class="card col-sm-4" style="width: 18rem; margin: 5px;">
+      <img class="card-img-top" src="<%= treinador.foto_url %>" alt="Imagem de capa do card">
+      <div class="card-body">
+        <h5 class="card-title"><%= treinador.nome %></h5>
+        <p class="card-text">Idade: <%= treinador.idade %> anos</p>
+        <p class="card-text">Sexo: <%= treinador.sexo == 0 ? "masculino" : "Feminino" %></p>
+      </div>
+    </div>
+    <br/>
+  <% end %>
+</div>
